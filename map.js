@@ -84,6 +84,7 @@ require([
         document.getElementById("basemap-gallery-btn").addEventListener("click", function () {
             toggleButton("gallery");
         });
+
         document.getElementById("direction-btn").addEventListener("click", function () {
             toggleButton("direction");
         });
@@ -98,7 +99,7 @@ require([
                 const currentPropGallery = galleryEl.style.getPropertyValue("display");
                 galleryEl.style.setProperty("display", currentPropGallery == "none" ? "block" : "none");
             } else if (element == "direction") {
-                const directionEl = document.getElementsByClassName("esri-direction")[0];
+                const directionEl = document.getElementsByClassName("esri-directions")[0];
                 const currentPropDirection = directionEl.style.getPropertyValue("display");
                 directionEl.style.setProperty("display", currentPropDirection == "none" ? "block" : "none");
             }
