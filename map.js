@@ -7,6 +7,8 @@ require([
     "esri/widgets/BasemapGallery",
     "esri/widgets/Directions",
     "esri/layers/RouteLayer",
+    "esri/widgets/ScaleBar",
+    "esri/widgets/Search"
 ],
     function (
         esriConfig,
@@ -16,7 +18,9 @@ require([
         LayerList,
         BasemapGallery,
         Directions,
-        RouteLayer
+        RouteLayer,
+        ScaleBar,
+        Search
     ) {
 
         esriConfig.apiKey = "AAPK49b393fb15d64d12a335aa81156091231gQgXEj-dfgLTlJbgYHK0-5DLfs7kKs-jorWwZJfp-yGiq9KtEVoXz04WAjeXXkS";
@@ -33,7 +37,8 @@ require([
 
         const view = new MapView({
             container: "viewDiv",
-            map: webmap
+            map: webmap,
+            zoom: 6,
         });
 
         const directionsWidget = new Directions({
@@ -60,6 +65,17 @@ require([
         });
         view.ui.add(basemapGallery, "top-right");
         view.ui.add("basemap-gallery-btn", "top-right");
+
+        const scaleBar = new ScaleBar({
+            view: view,
+            unit: "dual"
+        });
+        view.ui.add(scaleBar,"bottom-right");
+
+        const searchWidget = new Search({
+            view
+        });
+        view.ui.add(searchWidget,"bottom-right");
 
         document.getElementById("layer-list-btn").addEventListener("click", function () {
             toggleButton("layerList");
