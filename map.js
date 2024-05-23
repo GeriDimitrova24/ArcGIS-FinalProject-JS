@@ -63,8 +63,8 @@ require([
         const basemapGallery = new BasemapGallery({
             view
         });
-        view.ui.add(basemapGallery, "top-right");
         view.ui.add("basemap-gallery-btn", "top-right");
+        view.ui.add(basemapGallery, "top-right");
 
         const scaleBar = new ScaleBar({
             view: view,
