@@ -46,8 +46,8 @@ require([
             apiKey: esriConfig.apiKey,
             view
         });
-        view.ui.add(directionsWidget, { position: "bottom-left" });
         view.ui.add("direction-btn", "bottom-left");
+        view.ui.add(directionsWidget, { position: "bottom-left" });
 
         const homeBtn = new Home({
             view: view
